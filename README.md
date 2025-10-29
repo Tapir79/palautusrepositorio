@@ -14,3 +14,5 @@
 [X] Muokkaa ohjelman rakennetta niin, että PlayerReader annetaan konstruktoriparametrina StatisticsService:lle 
 [X] Muokkaa ohjelman rakennetta niin, että uri annetaan konstruktoriparametrina PlayerReader:lle
 [X] Muokkaa pääohjelma uuden rakenteen mukaiseksi
+[X] Lisää Coverage projektille
+[X] Lisää testit StatisticsService (100% testikattavuus)
