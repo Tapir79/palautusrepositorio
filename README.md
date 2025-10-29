@@ -13,7 +13,9 @@
 [X] Asenna projektin riippuvuudet suorittamalla sen juurihakemistossa komento poetry install                 
 [X] Muokkaa ohjelman rakennetta niin, että PlayerReader annetaan konstruktoriparametrina StatisticsService:lle           
 [X] Muokkaa ohjelman rakennetta niin, että uri annetaan konstruktoriparametrina PlayerReader:lle             
-[X] Muokkaa pääohjelma uuden rakenteen mukaiseksi           
+[X] Muokkaa pääohjelma uuden rakenteen mukaiseksi      
+
+### Tehtävä 16 - tilastot-ohjelman yksikkötestaus
 [X] Lisää Coverage projektille           
 [X] Lisää testit StatisticsService (100% testikattavuus)        
-      ![Coverage report](viikko1/kuvat/coverage_report.png)
+      ![Coverage report](viikko1/kuvat/nhl_coverage_report.png)
