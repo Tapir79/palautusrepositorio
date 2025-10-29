@@ -16,8 +16,10 @@
 ### Tehtävä 16 - tilastot-ohjelman yksikkötestaus
 [X] Lisää Coverage projektille           
 [X] Lisää testit StatisticsService (100% testikattavuus) 
+![Coverage report](kuvat/vko1_nhl_coverage_report_1.png)
 
 ### Tehtävä 17 - tilastot-ohjelman laajennus
 [X] Muuta luokan StatisticsService metodia top siten, että sille voidaan antaa enum parametri, joka määrittelee millä “parhausperusteella” metodi palauttaa pelaajat.
 
 [X] Korjaa vanha top-funktion testi ja lisää uusia luokalle StatisticsService, jotka testaavat top-funktion uutta toiminnallisuutta (100% testikattavuus).
+![Coverage report](kuvat/vko1_nhl_coverage_report_2.png)
