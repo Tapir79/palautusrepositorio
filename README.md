@@ -1,6 +1,6 @@
 # palautusrepositorio
 
-## Ohtuvarasto - Tehtävät 1 - 13
+## Ohtuvarasto - Tehtävät 2 - 13
 [https://github.com/Tapir79/ohtuvarasto](https://github.com/Tapir79/ohtuvarasto)
 
 ## Tehtyjen tehtävien dokumentaatio
