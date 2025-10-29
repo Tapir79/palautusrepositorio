@@ -7,3 +7,7 @@
 [X] Kopioi projekti tehtävien 14-17 palautukseen käyttämäsi palautusrepositorion sisälle
 [X] Varmista että koodi, sekä sen testit toimivat
 [X] Tee sovellukseen uusi testi, joka varmistaa, että laskin osaa laskea oikein kaksi peräkkäistä laskutoimitusta
+
+### Tehtävä 15 - NHL-tilastot
+[X] Kopioi nhl-projekti palautusrepositorion alle omaksi hakemistoksi
+[X] Asenna projektin riippuvuudet suorittamalla sen juurihakemistossa komento poetry install
