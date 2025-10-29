@@ -1,5 +1,5 @@
 import unittest
-from statistics_service import StatisticsService
+from statistics_service import StatisticsService, SortBy
 from player import Player
 
 class PlayerReaderStub:
@@ -29,7 +29,25 @@ class TestStatisticsService(unittest.TestCase):
         team = self.statistics_service.team("EDM")
         self.assertEqual(len(team), 3)
 
-    def test_top_returns_correct_player(self):
-        top_players = self.statistics_service.top(1)
+    def test_top_returns_correct_player_by_points(self):
+        top_players = self.statistics_service.top(1, SortBy.POINTS)
         self.assertEqual(top_players[0].name, "Gretzky")
+
+    def test_top_returns_correct_players_by_points(self):
+        top_players = self.statistics_service.top(3, SortBy.POINTS)
+        self.assertEqual(top_players[0].name, "Gretzky")
+        self.assertEqual(top_players[1].name, "Lemieux")
+        self.assertEqual(top_players[2].name, "Yzerman")
+
+    def test_top_returns_correct_player_by_goals(self):
+        top_players = self.statistics_service.top(1, SortBy.GOALS)
+        self.assertEqual(top_players[0].name, "Lemieux")
+
+    def test_top_returns_correct_player_by_assists(self):
+        top_players = self.statistics_service.top(1, SortBy.ASSISTS)
+        self.assertEqual(top_players[0].name, "Gretzky")
+
+    def test_top_returns_error_if_invalid_enum(self):
+        with self.assertRaises(ValueError):
+            self.statistics_service.top(1, "points")
         
