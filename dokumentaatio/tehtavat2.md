@@ -2,16 +2,18 @@
 
 ### Tehtävä 1 
 - [X] Luo kansiot
-- [X] poetry init --python "^3.12"
-- [X] poetry add flask@latest    
-- [X] poetry add --group dev pytest         
-- [X] poetry run pytest --version  -> 8.4.2
-- [X] poetry add sqlalchemy
-- [X] poetry add "sqlalchemy==1.4.54"
-- [X] poetry remove flask
-- [X] poetry add fastapi
+- [X] Poetry init --python "^3.12"
+- [X] Poetry add flask@latest    
+- [X] Poetry add --group dev pytest         
+- [X] Poetry run pytest --version  -> 8.4.2
+- [X] Poetry add sqlalchemy
+- [X] Poetry add "sqlalchemy==1.4.54"
+- [X] Poetry remove flask
+- [X] Poetry add fastapi
 
 ### Tehtävä 2 
-- [X] poetry add requests
-- [X] liitä index-runko
+- [X] Poetry add requests
+- [X] Liitä index-runko
+- [X] Luo attribuutit player luokalle JSON-datasta
+- [X] Luo tulostus pelaajille
 
