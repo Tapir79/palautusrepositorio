@@ -20,15 +20,17 @@
 ### Tehtävä 3
 - [X] Suodata suomalaiset pelaajat        
 - [X] Järjestä pisteiden mukaan           
-- [X] Muotoile tulostus   
+- [X] Muotoile tulostus      
 
 ### Tehtävä 4 
 - [X] Luo PlayerReader ja PlayerStats        
 - [X] Toteuta PlayerReader           
 - [X] Toteuta PlayerStats         
-- [X] Kytke uusi logiikka pääohjelmaan               
+- [X] Kytke uusi logiikka pääohjelmaan                    
 
 ### Tehtävä 5 
 - [X] Poetry add rich      
-- [X] Luo valintavalikot 
-- [X] Luo tulostustaulukko richillä valitun maan ja kauden pelaajille
+- [X] Luo valintavalikot        
+- [X] Luo tulostustaulukko richillä valitun maan ja kauden pelaajille        
+
+![Coverage report](kuvat/vko2_harj5_rich.png)
