@@ -28,4 +28,7 @@
 - [X] Toteuta PlayerStats         
 - [X] Kytke uusi logiikka pääohjelmaan               
 
-
+### Tehtävä 5 
+- [X] Poetry add rich      
+- [X] Luo valintavalikot 
+- [X] Luo tulostustaulukko richillä valitun maan ja kauden pelaajille
