@@ -27,6 +27,6 @@ class PlayerStats:
         national_players = self._filter_by_nationality(nationality)
 
         return sorted(
-         national_players, 
-         reverse=True,
-         key=lambda player: get_sort_key(player, SortBy.POINTS))
+            national_players, 
+            reverse=True,
+            key=lambda player: get_sort_key(player, SortBy.POINTS))
