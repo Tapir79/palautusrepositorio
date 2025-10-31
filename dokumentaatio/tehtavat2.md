@@ -23,9 +23,9 @@
 - [X] Muotoile tulostus   
 
 ### Tehtävä 4 
-- [] Luo PlayerReader ja PlayerStats           
-- [] Refaktoroi main 2 luokkaan           
-- [] Toteuta PlayerReader           
-- [] Toteuta PlayerStats         
+- [X] Luo PlayerReader ja PlayerStats        
+- [X] Toteuta PlayerReader           
+- [X] Toteuta PlayerStats         
+- [X] Kytke uusi logiikka pääohjelmaan               
 
 
