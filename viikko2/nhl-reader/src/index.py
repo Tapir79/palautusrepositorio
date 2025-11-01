@@ -18,7 +18,7 @@ def select_season(console: Console) -> str:
 
     choice_inputs = {"choice": "season",
                      "max_number": 7}
-    
+
     return choose_input(console, choice_inputs, seasons)
 
 
@@ -45,10 +45,10 @@ def choose_input(console: Console, choice_inputs: dict, values) -> str:
     max_number = choice_inputs["max_number"]
 
     console.print(f"\n[bold cyan]Choose {choice}:[/bold cyan]")
-    
-    formatted = " / ".join(f"[bold]{i}.[/bold] [white]{v}[/white]" for i, v in enumerate(values, start=1))
+
+    formatted = " / ".join(f"[bold]{i}.[/bold] [white]{v}[/white]" for i,
+                           v in enumerate(values, start=1))
     console.print(formatted)
-   
 
     while True:
         try:
@@ -74,7 +74,8 @@ def main():
     players = stats.top_scorers_by_nationality(nationality)
 
     if not players:
-        console.print(f"[bold red]Could not find players for {nationality} in season {season}.[/bold red]")
+        console.print(
+            f"[bold red]Could not find players for {nationality} in season {season}.[/bold red]")
         return
 
     table = Table(title=f"Season {season} players from {nationality}")
