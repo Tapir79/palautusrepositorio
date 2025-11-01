@@ -3,6 +3,7 @@ from rich.table import Table
 from player_reader import PlayerReader
 from player_stats import PlayerStats
 
+# muutos pre-commitin testaukseen liittyen
 
 def select_season(console: Console) -> str:
     """Returns the selected season as a string."""
