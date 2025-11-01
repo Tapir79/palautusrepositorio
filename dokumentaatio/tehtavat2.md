@@ -37,3 +37,36 @@
 
 ### Tehtävä 8 
 - [X] Lisää pylint ja autopep8 projektiin           
+- [X] Korjaa pylint virheet 
+- [X] Bonus: Lisää pre-commit projektin juureen, joka suorittaa pylint-tarkistuksen alikansiolle nhl-reader             
+````
+  GNU nano 6.2                                                            .git/hooks/pre-commit                                                                     
+#!/bin/bash
+export PATH="$HOME/.local/bin:$PATH"
+
+echo "🔍 Running Pylint for viikko2/nhl-reader project..."
+
+# Siirrytään oikeaan hakemistoon, jossa pyproject.toml sijaitsee
+cd "$(git rev-parse --show-toplevel)/viikko2/nhl-reader" || exit 1
+
+# Tarkistetaan, että Poetry on asennettu
+if ! command -v poetry &> /dev/null; then
+    echo "❌ Poetry not found in PATH. Please install Poetry."
+    exit 1
+fi
+
+# Aja pylint käyttäen Poetry-ympäristöä
+poetry run pylint src
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+    echo ""
+    echo "❌ Commit cancelled — Pylint found issues in viikko2/nhl-reader."
+    echo "Fix the issues and try committing again."
+    exit 1
+fi
+
+echo "✅ Pylint passed successfully for viikko2/nhl-reader!"
+exit 0
+
+````                
