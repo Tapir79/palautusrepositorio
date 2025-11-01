@@ -28,9 +28,12 @@
 - [X] Toteuta PlayerStats         
 - [X] Kytke uusi logiikka pääohjelmaan                    
 
-### Tehtävä 5 
+### Tehtävä 5
 - [X] Poetry add rich      
 - [X] Luo valintavalikot        
 - [X] Luo tulostustaulukko richillä valitun maan ja kauden pelaajille        
 
 ![Coverage report](kuvat/vko2_harj5_rich.png)
+
+### Tehtävä 8 
+- [X] Lisää pylint ja autopep8 projektiin           
