@@ -125,7 +125,7 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         new file:   viikko2/git-branch-harjoitus/LICENCE
 ````
-- [X] git checkout main       
+- [X] git checkout main        
 - [X] main-haarassa git status  
 ````  
 On branch main
@@ -157,3 +157,22 @@ If you are sure you want to delete it, run 'git branch -D laskut'.
 ```` 
 Deleted branch laskut 
 ````    
+
+### Tehtävä 11 
+- [X] main-haarassa muokkaa index.py-tiedostoa alkua            
+- [X] main-haarassa committaa muutos       
+- [X] git checkout -b bugikorjaus       
+- [X] bugikorjaus-haarassa editoi tiedoston index.py loppua
+- [X] bugikorjaus-haarassa committaa index.py      
+- [X] git checkout main       
+- [X] main-haarassa muokkaa index.py-tiedostoa alkua         
+- [X] main-haarassa committaa muutos       
+- [X] git merge bugikorjaus       
+- [X] main-haarassa muuta tiedoston index.py print-komentoja   
+- [X] main-haarassa committaa muutos         
+- [X] git checkout bugikorjaus       
+- [X] bugikorjaus-haarassa muuta tiedoston index.py print-komentoja      
+- [X] bugikorjaus-haarassa committaa index.py         
+- [X] git merge main          
+- [X] Ratkaise konflikti        
+- [X] Lisää index.py staging alueelle ja committoi      
