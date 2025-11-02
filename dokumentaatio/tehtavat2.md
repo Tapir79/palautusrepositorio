@@ -70,3 +70,26 @@ echo "✅ Pylint passed successfully for viikko2/nhl-reader!"
 exit 0
 
 ````                
+
+### Tehtävä 9
+
+- [X] Luo alihakemisto viikko2/git-branch-harjoitus          
+- [X] Main-haarassa cd viikko2/git-branch-harjoitus         
+- [X] Luo ja committaa hakemistoon tiedosto index.py          
+- [X] git checkout -b laskut       
+- [X] laskut-haarassa luo tiedosto summa.py        
+- [X] laskut-haarassa lisää ja committaa summa.py versionhallintaan           
+- [X] git checkout main              
+- [X] Main-haarassa luo tiedosto logger.py          
+- [X] Main-haarassa muokkaa tiedostoa  index.py         
+- [X] main-haarassa committaa muutokset        
+- [X] git checkout -b laskut       
+- [X] laskut-haarassa lisää ja committaa tiedosto erotus.py         
+- [X] git checkout main          
+- [X] Asenna gitk         
+- [X] Tarkastele gitk:lla git-puuta       
+![Coverage report](kuvat/gitk_week2.png)   
+- [X] main-haarassa git merge laskut     
+- [X] main-haarassa muuta tiedostoa index.py ja commitoi muutos    
+- [X] Tarkastele gitk:lla git-puuta         
+![Coverage report](kuvat/gitk_week2_main_final.png)
