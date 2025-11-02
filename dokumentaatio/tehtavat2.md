@@ -83,7 +83,7 @@ exit 0
 - [X] Main-haarassa luo tiedosto logger.py          
 - [X] Main-haarassa muokkaa tiedostoa  index.py         
 - [X] main-haarassa committaa muutokset        
-- [X] git checkout -b laskut       
+- [X] git checkout laskut       
 - [X] laskut-haarassa lisää ja committaa tiedosto erotus.py         
 - [X] git checkout main          
 - [X] Asenna gitk         
@@ -93,3 +93,67 @@ exit 0
 - [X] main-haarassa muuta tiedostoa index.py ja commitoi muutos    
 - [X] Tarkastele gitk:lla git-puuta         
 ![Coverage report](kuvat/gitk_week2_main_final.png)
+
+
+### Tehtävä 10
+- [X] main-haarassa luo uusi tiedosto README.md
+- [X] main-haarassa git status  
+```` 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        viikko2/git-branch-harjoitus/README.md
+```` 
+- [X] git checkout laskut   
+- [X] laskut-haarassa git status  
+```` 
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        viikko2/git-branch-harjoitus/README.md
+```` 
+- [X] laskut-haarassa lisää tiedosto nyt versionhallinnan alaisuuteen ja commitoi se        
+- [X] laskut-haarassa luo uusi tiedosto LICENSE ja lisää se versionhallintaan, mutta älä commitoi        
+- [X] laskut-haarassa git status  
+````
+On branch laskut
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   viikko2/git-branch-harjoitus/LICENCE
+````
+- [X] git checkout main       
+- [X] main-haarassa git status  
+````  
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   viikko2/git-branch-harjoitus/LICENCE
+````
+- [X] main-haarassa committoi LICENSE        
+- [X] main-haarassa git status           
+````
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+````
+- [X] git checkout laskut       
+- [X] laskut-haarassa git merge main   
+- [X] git checkout main    
+- [X] git branch -d laskut    
+git branch -d laskut
+````
+error: The branch 'laskut' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D laskut'.
+````
+- [X] git branch -D laskut 
+```` 
+Deleted branch laskut 
+````    
