@@ -176,3 +176,82 @@ Deleted branch laskut
 - [X] git merge main          
 - [X] Ratkaise konflikti        
 - [X] Lisää index.py staging alueelle ja committoi      
+
+### Tehtävä 12
+- [X] git checkout main      
+- [X] git push              
+- [X] git checkout bugikorjaus       
+- [X] git push --set-upstream origin bugikorjaus         
+- [X] Kloonaa GitHub-repositoriosta koneellesi toinen klooni       
+- [X] kloonissa git branch        
+`* main`         
+- [X] kloonissa git switch -c bugikorjaus --track origin/bugikorjaus       
+- [X] kloonissa git branch -vv           
+````
+bugikorjaus f1b6dd9 [origin/bugikorjaus] Resolve conflict in index.py
+  main        0966664 [origin/main] Add ex11 documentation 
+````
+- [X] kloonissa Lisää “träkkäävään” branchiin tiedosto changelog.txt, committaa ja pushaa branch GitHubiin           
+- [X] kloonissa git checkout -b tulo    
+- [X] kloonissa Lisää tulo.py         
+- [X] kloonissa Muokkaa index.py:tä ja commitoi ja pushaa se  `git push --set-upstream origin tulo`  
+- [X] Mene GitHub-repositorion alkuperäiseen paikalliseen kopioon
+- [X] git fetch  
+````
+From github.com:Tapir79/palautusrepositorio
+   f1b6dd9..c4785dd  bugikorjaus -> origin/bugikorjaus
+ * [new branch]      tulo        -> origin/tulo
+````
+- [X] git switch -c tulo --track origin/tulo    
+
+- [X] git checkout main        
+- [X] git merge tulo       
+- [X] git branch -d tulo    
+- [X] git push origin --delete tulo          
+- [X] Lisää osamaara.py ja commitoi se        
+- [X] git push --set-upstream origin osamaara       
+- [X] Mene jälleen hetki sitten luotuun repositorion klooniin ja haaraan main   
+- [X] git remote show origin
+
+````
+* remote origin
+  Fetch URL: git@github.com:Tapir79/palautusrepositorio.git
+  Push  URL: git@github.com:Tapir79/palautusrepositorio.git
+  HEAD branch: main
+  Remote branches:
+    bugikorjaus              tracked
+    main                     tracked
+    osamaara                 new (next fetch will store in remotes/origin)
+    refs/remotes/origin/tulo stale (use 'git remote prune' to remove)
+  Local branches configured for 'git pull':
+    bugikorjaus merges with remote bugikorjaus
+    main        merges with remote main
+    tulo        merges with remote tulo
+  Local refs configured for 'git push':
+    bugikorjaus pushes to bugikorjaus (up to date)
+    main        pushes to main        (up to date)
+````
+- [X] git branch -D tulo   
+- [X] git checkout osamaara          
+- [X] git push            
+- [X] git remote prune origin   
+- [X] git fetch --all           
+- [X] git remote show origin         
+````      
+* remote origin
+  Fetch URL: git@github.com:Tapir79/palautusrepositorio.git
+  Push  URL: git@github.com:Tapir79/palautusrepositorio.git
+  HEAD branch: main
+  Remote branches:
+    bugikorjaus tracked
+    main        tracked
+    osamaara    tracked
+  Local branches configured for 'git pull':
+    bugikorjaus merges with remote bugikorjaus
+    main        merges with remote main
+    osamaara    merges with remote osamaara
+  Local refs configured for 'git push':
+    bugikorjaus pushes to bugikorjaus (up to date)
+    main        pushes to main        (up to date)
+    osamaara    pushes to osamaara    (up to date)
+````
