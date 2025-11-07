@@ -1,6 +1,6 @@
 # palautusrepositorio
 
-## Ohtuvarasto - Tehtävät 2 - 13
+## Ohtuvarasto 
 [https://github.com/Tapir79/ohtuvarasto](https://github.com/Tapir79/ohtuvarasto)
 
 ## Webcounter-tehtävät
