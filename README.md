@@ -6,7 +6,7 @@
 ## Webcounter-tehtävät
 [https://github.com/Tapir79/webcounter](https://github.com/Tapir79/webcounter)
 
-## Tehtyjen tehtävien dokumentaatio
+## Palautusrepositoriotehtävien dokumentaatio
 
 * [Viikko 1 - Tehtävät 14 - 17](https://github.com/Tapir79/palautusrepositorio/tree/main/dokumentaatio/tehtavat1.md)
 
