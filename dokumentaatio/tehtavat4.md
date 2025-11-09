@@ -16,5 +16,14 @@ E             Actual: maksa('1111', 10, 2)
 
 ### Tehtävä 2 - Yksikkötestaus ja riippuvuudet: mock-kirjasto, osa 2
 - [X] Hae maksukortti-mock projekti        
+- [X] Korjaa kassapäätteen metodi osta_lounas.       
+- [X] Lisää testi: lataa kutsu lisää maksukortille ladattavan rahamäärän käyttäen kortin metodia lataa, jos ladattava summa on positiivinen     
+- [X] Lisää testi: Kassapäätteen metodin lataa kutsu ei tee maksukortille mitään, jos ladattava summa on negatiivinen      
+- [X] Korjaa kassapäätettä siten, että testit menevät läpi         
+
+### Tehtävä 3 - Yksikkötestaus ja riippuvuudet: mock-kirjasto, osa 3         
+- [X] Hae viikko4/verkkokauppa projekti      
+- [X] 
+- [X] 
 - [X] 
 - [X] 
