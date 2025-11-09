@@ -10,26 +10,19 @@
 - [X] Toteuta CounterLibrary-luokkaan sopiva metodi, jotta testit menevät läpi.     
 
 
-### Tehtävä 5
+### Tehtävä 5 - WebLogin, osa 1
 - [X]  Hae projekti login     
-- [X]  
-- [X]  
-- [X]  
+- [X]  poetry install         
+- [X]  python3 src/index.py      
+- [X]  Luo uusi tiedosto `home.robot`       
+- [X]  Toteuta testin käyttämät määrittelemättömät avainsanat      
 
-### Tehtävä 6
-- [X]  
-- [X]  
-- [X]  
-- [X]  
+### Tehtävä 6 - WebLogin, osa 2
+- [X]  Lisää `Login With Nonexistent Username` `login.robot`-tiedostoon         
 
 ### Tehtävä 7
-- [X]  
-- [X]  
-- [X]  
-- [X]  
+- [X]  Luo testitapaukset uuteen tiedostoon `register.robot`          
+- [X]  Laajenna koodia siten, että testitapaukset menevät läpi (metodin validate laajennus)                 
 
 ### Tehtävä 8
-- [X]  
-- [X]  
-- [X]  
-- [X]  
+- [X]  Kirjoita lyhyt tiivistelmä retrospektiivitekniikoista annetun materiaalin pohjalta               
