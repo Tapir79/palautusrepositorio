@@ -11,5 +11,10 @@ E           Expected: maksa(<ANY>, <ANY>, 1000)
 E             Actual: maksa('1111', 10, 2)
 
 ````   
-- [X] Korjaa rikottu testi, älä pushaa koodia githubiin (git discard changes)              
+- [X] Korjaa rikottu testi, älä pushaa koodia githubiin (git discard changes)        
 
+
+### Tehtävä 2 - Yksikkötestaus ja riippuvuudet: mock-kirjasto, osa 2
+- [X] Hae maksukortti-mock projekti        
+- [X] 
+- [X] 
