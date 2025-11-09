@@ -25,4 +25,4 @@
 - [X]  Laajenna koodia siten, että testitapaukset menevät läpi (metodin validate laajennus)                 
 
 ### Tehtävä 8
-- [X]  Kirjoita lyhyt tiivistelmä retrospektiivitekniikoista annetun materiaalin pohjalta               
+- [X]  Kirjoita lyhyt tiivistelmä retrospektiivitekniikoista annetun materiaalin pohjalta  (viikko3/retro.md)             
