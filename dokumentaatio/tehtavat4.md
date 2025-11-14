@@ -88,6 +88,7 @@ sequenceDiagram
 - [X] poetry add coverage --group dev     
 - [X] coverage report aloitustilanne kauppa 88%:   
 ![Coverage report](kuvat/vko4_harj4_coverage_report_start_state.png)       
-- [X]          
-- [X]          
-- [X]                
+- [X] Uusi testi: korista poistaminen (ei havaittuja bugeja)           
+- [X]  coverage report testin jälkeen kauppa 100%:   
+![Coverage report](kuvat/vko4_harj4_coverage_report_end_state.png)             
+              
