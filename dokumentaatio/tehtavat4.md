@@ -23,7 +23,60 @@ E             Actual: maksa('1111', 10, 2)
 
 ### Tehtävä 3 - Yksikkötestaus ja riippuvuudet: mock-kirjasto, osa 3         
 - [X] Hae viikko4/verkkokauppa projekti      
-- [X] 
-- [X] 
-- [X] 
-- [X] 
+- [X] Tutustu koodiin.        
+- [X] Luo sekvenssikaavio index.pyn ensimmäisestä ostotapahtumasta:
+````mermaid
+sequenceDiagram
+    participant Main
+    participant Kauppa
+    participant Ostoskori
+    participant Varasto
+    participant Viitegeneraattori
+    participant Pankki
+    participant Kirjanpito
+
+    Main->>Kauppa: luodaan Kauppa(varasto, pankki, viitegeneraattori)
+
+    Main->>Kauppa: aloita_asiointi()
+    Kauppa->>Ostoskori: uusi Ostoskori()
+
+    Main->>Kauppa: lisaa_koriin(1)
+    Kauppa->>Varasto: hae_tuote(1)
+    Kauppa->>Ostoskori: lisaa(tuote 1)
+    Kauppa->>Varasto: ota_varastosta(tuote 1)
+    Varasto->>Kirjanpito: "otettiin varastosta Koff Portteri"
+
+    Main->>Kauppa: lisaa_koriin(3)
+    Kauppa->>Varasto: hae_tuote(3)
+    Kauppa->>Ostoskori: lisaa(tuote 3)
+    Kauppa->>Varasto: ota_varastosta(tuote 3)
+    Varasto->>Kirjanpito: "otettiin varastosta Sierra Nevada Pale Ale"
+
+    Main->>Kauppa: lisaa_koriin(3)
+    Kauppa->>Varasto: hae_tuote(3)
+    Kauppa->>Ostoskori: lisaa(tuote 3)
+    Kauppa->>Varasto: ota_varastosta(tuote 3)
+    Varasto->>Kirjanpito: "otettiin varastosta Sierra Nevada Pale Ale"
+
+    Main->>Kauppa: poista_korista(1)
+    Kauppa->>Ostoskori: poista(tuote 1)
+    Kauppa->>Varasto: palauta_varastoon(tuote 1)
+    Varasto->>Kirjanpito: "palautettiin varastoon Koff Portteri"
+
+    Main->>Kauppa: tilimaksu("Pekka Mikkola", "1234-12345")
+    Kauppa->>Viitegeneraattori: uusi()
+    Viitegeneraattori-->>Kauppa: viite = 2
+    Kauppa->>Ostoskori: hinta()
+    Ostoskori-->>Kauppa: summa = 10
+    Kauppa->>Pankki: tilisiirto("Pekka Mikkola", viite=2, tililtä="1234-12345", tilille="33333-44455", summa=10)
+    Pankki->>Kirjanpito: "tilisiirto: 1234-12345 → 33333-44455, viite 2, 10e"
+    Pankki-->>Kauppa: True
+```` 
+
+
+- [X] poetry install       
+- [X] poetry run pytest (1 testi PASS)
+- [X] Uusi testi: Aloitetaan asiointi, koriin lisätään tuote, jota varastossa on ja suoritetaan ostos, eli kutsutaan metodia kaupan tilimaksu, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumeroilla ja summalla           
+- [] Uusi testi: Aloitetaan asiointi, koriin lisätään kaksi eri tuotetta, joita varastossa on ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla          
+- []  Uusi testi: Aloitetaan asiointi, koriin lisätään kaksi samaa tuotetta, jota on varastossa tarpeeksi ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla          
+- [] Uusi testi: Aloitetaan asiointi, koriin lisätään tuote, jota on varastossa tarpeeksi ja tuote joka on loppu ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla            
