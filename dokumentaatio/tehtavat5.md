@@ -21,3 +21,23 @@ Changes to be committed:
 ### Tehtävä 2 - Git: commitin muutosten kumoaminen [versionhallinta]       
 - [X] git revert HEAD --no-edit       
 - [X] Varmista, että edellisen commitin tekemä muutos (eli tiedoston important.txt lisääminen) kumoutuu     
+
+### Tehtävä 3 
+
+- [X] echo "main 1" >> file.txt    
+- [X] git add .    
+- [X] git commit -m "Main commit"    
+- [X] git checkout -b haara    
+- [X] echo "branch work" >> branchfile.txt    
+- [X] git add .    
+- [X] git commit -m "Commit on haara"    
+- [X] git checkout main    
+- [X] echo "main 2" >> file2.txt    
+- [X] git add .    
+- [X] git commit -m "Main2 commit"    
+- [X] git checkout haara    
+- [X] git rebase main    
+- [X] git checkout main    
+- [X] git merge haara    
+- [X] git reset --hard <old-hash>       
+- [X] git branch -D haara       
