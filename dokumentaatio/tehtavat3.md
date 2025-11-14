@@ -1,4 +1,4 @@
-## viikko 3  (käytetyt tunnit 9)
+## viikko 3
 
 ### Tehtävä 1 
 - [X] Kopioi projekti palautusrepositorioosi, hakemiston viikko3 sisälle.            

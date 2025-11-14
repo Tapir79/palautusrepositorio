@@ -80,3 +80,14 @@ sequenceDiagram
 - [X] Uusi testi: Aloitetaan asiointi, koriin lisätään kaksi eri tuotetta, joita varastossa on ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla          
 - [X]  Uusi testi: Aloitetaan asiointi, koriin lisätään kaksi samaa tuotetta, jota on varastossa tarpeeksi ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla          
 - [X] Uusi testi: Aloitetaan asiointi, koriin lisätään tuote, jota on varastossa tarpeeksi ja tuote joka on loppu ja suoritetaan ostos, varmista että kutsutaan pankin metodia tilisiirto oikealla asiakkaalla, tilinumerolla ja summalla            
+
+
+### Tehtävä 4 - Yksikkötestaus ja riippuvuudet: mock-kirjasto, osa 4         
+- [X] Uusi testi: metodin aloita_asiointi kutsuminen nollaa edellisen ostoksen tiedot          
+- [X] Uusi testi: kauppa pyytää uuden viitenumeron jokaiselle maksutapahtumalle     
+- [X] poetry add coverage --group dev     
+- [X] coverage report aloitustilanne kauppa 88%:   
+![Coverage report](kuvat/vko4_harj4_coverage_report_start_state.png)       
+- [X]          
+- [X]          
+- [X]                
