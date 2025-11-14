@@ -92,3 +92,20 @@ sequenceDiagram
 - [X]  coverage report testin jälkeen kauppa 100%:   
 ![Coverage report](kuvat/vko4_harj4_coverage_report_end_state.png)             
               
+### Tehtävä 5 - git: tägit      
+- [X] Lue  http://git-scm.com/book/en/v2/Git-Basics-Tagging     
+- [X] Luo lightweight tag `git tag v1.0.0`     
+- [X] `git push origin v1.0.0`   
+- [X] Tarkista tag paikallisesti: git tag     
+- [X] Tarkista tag githubista      
+- [X] Tee kolme committia (eli 3 kertaa muutos + add + commit)     
+- [X] Luo lightweight tag `git tag v1.1.0`  
+- [X] Katso gitk-komennolla miltä historiasi näyttää     
+![Coverage report](kuvat/vko4_harj5_gitk.png)      
+- [X] `git checkout v1.0.0`      
+- [X]  tagin jälkeisiä muutoksia ei näy       
+- [X] `git checkout main`         
+- [X] Lisää tägi edelliseen committiin `git tag v1.0.1 HEAD^`   
+![Coverage report](kuvat/vko4_harj5_gitk2.png)  
+- [X] `git push origin v1.1.0`      
+- [X] `git push origin v1.0.1` (`git push --tags`)        
