@@ -39,7 +39,7 @@ class TennisGame:
         if self._points_are_equal():
             return self._tied_message()
         if self._player_has_advantage():
-            return  self._advantage_or_win_message()
+            return self._advantage_or_win_message()
         
         return self._regular_score_message()
 
