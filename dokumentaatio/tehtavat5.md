@@ -41,3 +41,22 @@ Changes to be committed:
 - [X] git merge haara    
 - [X] git reset --hard <old-hash>       
 - [X] git branch -D haara       
+
+### Tehtävä 4 
+
+- [X] Kopioi tennis-projekti viikko5-kansioon      
+- [X] git push     
+- [X] git checkout -b "tennis_refactoring"    
+- [X] git status on  nothing to commit, working tree clean       
+- [X] Tehtävänä on refaktoroida koodi luettavuudeltaan mahdollisimman ymmärrettäväksi     
+- [X] git commit -m "Refactor tennis_game"
+- [X] git push --set-upstream origin tennis_refactoring     
+- [X] git push
+
+### Tehtävä 5
+- [X] PR Githubissa tennis_refactoring-haarasta main-haaraan       
+- [X] PR kuvaus        
+- [X] Copilotin katselmointi       
+- [X] Hyväksy/resolve         
+- [X] Mergeä PR mainiin      
+- [X] Kirjoita raportti review.md hakemistoon viikko5    
