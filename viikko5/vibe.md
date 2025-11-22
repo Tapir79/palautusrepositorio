@@ -7,7 +7,7 @@ Copilot sai aikaan toimivan ratkaisun, jonka workflow oli melko selkeä. UI:n ul
 Dependency injectionia copilot ei oikein saanut tehtyä, vaikka yritin ohjeistaa useiden PR review-pyyntöjen kautta. Eri kokeilujen myötä opin, että promptien ei kannata olla kohteliaita ja laajasti kirjoitettuja pyyntöjä vaan niitä kannattaa kirjoittaa mahdollisimman tiiviisti ja imperatiivimuodossa. Lisäksi opin, että jos kovin monta kertaa pyytää muutoksia, copilot palauttaa helposti aiempia jo kertaalleen korjattuja ratkaisuja alkuperäiseen tilaan. Loppujen lopuksi vibekoodaukseen kulunut aika kaiken säädön jälkeen oli huomattavasti hitaampaa kuin jos olisin alusta asti koodannut kaiken itse. Lisäksi generoitu koodi ei ole kuitenkaan ihan niin tuttua kuin itse koodattu ja jotkut logiikkavirheet tai bugit saattoivat jäädä huomaamatta. Hyvin pienessä mittakaavassa tästä voisi olla hyötyä myös työprojekteissa valmiin boilerplaten luomisessa.
 
 ## Oliko koodi selkeää
-Koodi oli suhteellisen selkeää, mutta toisteista. Funktiot olivat pitkiä ja ne tekivät turhat monia asioita (single responsibility principleä ei siis noudatettu). 
+Koodi oli suhteellisen selkeää, mutta toisteista. Funktiot olivat pitkiä ja ne tekivät turhat monia asioita (single responsibility principleä ei siis noudatettu). Eli oli melko paljon ns. code smelliä. Muuttujien ja luokkien nimet olivat kuitenkin melko selkeitä. 
 Copilot luoma warehouse_service-luokka toimi siten, että se loi objektit seuraavasti: 
 ````
 self.warehouses[warehouse_id] = {
