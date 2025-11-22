@@ -14,4 +14,7 @@
 
 * [Viikko 3 - Tehtävät 1, 5 - 8](https://github.com/Tapir79/palautusrepositorio/tree/main/dokumentaatio/tehtavat3.md)       
 
-* [Viikko 4 - Tehtävät 1 - 5](https://github.com/Tapir79/palautusrepositorio/tree/main/dokumentaatio/tehtavat4.md)       
+* [Viikko 4 - Tehtävät 1 - 5](https://github.com/Tapir79/palautusrepositorio/tree/main/dokumentaatio/tehtavat4.md)    
+
+* [Viikko 5 - Tehtävät 1 - 6]
+(https://github.com/Tapir79/palautusrepositorio/tree/main/dokumentaatio/tehtavat5.md) 
