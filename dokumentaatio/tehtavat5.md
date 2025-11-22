@@ -60,3 +60,14 @@ Changes to be committed:
 - [X] Hyväksy/resolve         
 - [X] Mergeä PR mainiin      
 - [X] Kirjoita raportti review.md hakemistoon viikko5    
+
+### Tehtävä 6    
+- [X] Githubiin issue käyttöliittymästä Flask-sovelluskehyksellä, yritys 1            
+- [X] Issuen poisto        
+- [X] Githubiin issue käyttöliittymästä Flask-sovelluskehyksellä, yritys 2                
+- [X] Review yritys                
+- [X] Githubiin issue käyttöliittymästä Flask-sovelluskehyksellä, yritys 3                  
+- [X] Review 1 copilotille         
+- [X] Review 2 copilotille           
+- [X] PR:n merge mainiin           
+- [X] vibe-raportti      
