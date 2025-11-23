@@ -43,7 +43,7 @@ def create_warehouse(self, name, tilavuus, saldo=0):
 ````
 
 Tein vielä yhden review-kierroksen, missä pyysin copilotia käyttämään DI:tä. 
-Tällä kertaa se tekikin näin, mutta Warehouse-wrapperilla Varasto-oliolle. 
+Tällä kertaa se tekikin näin, mutta loi väliin turhan Warehouse-wrapperin Varasto-oliolle.
 
 Tein vielä yhden interaation copilotin kanssa ja pyysin sitä käyttämään suoraan olemassa olevaa Varasto-oliota Warehouse-olion sijaan. Lopputulos oli tämä:
 ````
