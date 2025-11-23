@@ -71,3 +71,10 @@ Changes to be committed:
 - [X] Review 2 copilotille           
 - [X] PR:n merge mainiin           
 - [X] vibe-raportti      
+
+### Bonus Int-joukko refaktorointi 
+- [] Poista copypaste      
+- [] Vähennä monimutkaisuutta    
+- [] Anna muuttujille selkeät nimet    
+- [] Tee metodeista pienempiä ja hyvän koheesion omaavia   
+- [] Ratkaisusi tulee toimia siten, että edelleen joukon sisäisen listan koko on kiinteä, ja lista luodaan metodilla _luo_lista, eli jos lista täyttyy, luodaan uusi lista metodin avulla.           
