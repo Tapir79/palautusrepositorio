@@ -55,7 +55,7 @@ class Kayttoliittyma:
             Komento.SUMMA: Summa(self._sovelluslogiikka, self._lue_syote),
             Komento.EROTUS: Erotus(self._sovelluslogiikka, self._lue_syote),
             Komento.NOLLAUS: Nollaus(self._sovelluslogiikka),
-            Komento.KUMOA: Kumoa()
+            Komento.KUMOA: Kumoa(self._sovelluslogiikka)
         }
 
         tulos_teksti.grid(columnspan=4)
@@ -112,8 +112,8 @@ class Nollaus:
         self._sovelluslogiikka.nollaa()
 
 class Kumoa:
-    def __init__(self):
-        pass
+    def __init__(self, sovelluslogiikka:Sovelluslogiikka):
+        self._sovelluslogiikka = sovelluslogiikka
 
     def suorita(self):
-        pass
+        self._sovelluslogiikka.kumoa()
