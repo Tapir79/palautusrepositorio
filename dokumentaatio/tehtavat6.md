@@ -126,3 +126,32 @@ Adam Fox             NYR          10 + 51 = 61
 Alexis Lafrenière    NYR          17 + 28 = 45
 Jonny Brodzinski     NYR          12 + 7  = 19
 ````
+
+### Tehtävä 6 - Parannettu kyselykieli, osa 2
+- [X] Laajenna QueryBuilderia Or-ehdolla  
+- [X] Varmista, että kyselyt palauttavat oikeat pelaajat  
+
+````
+matcher = (
+  query
+    .one_of(
+      query.plays_in("PHI")
+          .has_at_least(10, "assists")
+          .has_fewer_than(10, "goals"),
+      query.plays_in("EDM")
+          .has_at_least(50, "points")
+    )
+    .build()
+)
+
+Cam York             PHI          4  + 13 = 17
+Egor Zamula          PHI          3  + 12 = 15
+Leon Draisaitl       EDM          52 + 54 = 106
+Evan Bouchard        EDM          14 + 53 = 67
+Nick Seeler          PHI          3  + 17 = 20
+Jamie Drysdale       PHI          7  + 13 = 20
+Rasmus Ristolainen   PHI          4  + 15 = 19
+Connor McDavid       EDM          26 + 74 = 100
+Travis Sanheim       PHI          8  + 22 = 30
+
+````
