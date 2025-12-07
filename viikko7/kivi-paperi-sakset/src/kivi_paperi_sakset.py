@@ -5,22 +5,30 @@ class KiviPaperiSakset:
         self._tuomari = tuomari
         
     def pelaa(self):
-        ekan_siirto = self.ekan_siirto()
-        tokan_siirto = self.tokan_siirto()
-
+        ekan_siirto, tokan_siirto = self.tee_siirrot()
         self.toisen_pelaajan_eka_valinta(tokan_siirto)
         
         while self._onko_ok_siirto(ekan_siirto) and self._onko_ok_siirto(tokan_siirto):
-            self._tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
-            print(self._tuomari)
-
-            ekan_siirto = self.ekan_siirto()
-            tokan_siirto = self.tokan_siirto()
-
-            self.siirron_asettaminen(tokan_siirto, ekan_siirto)
+            self.pelikierros()
         
         print("Kiitos!")
         print(self._tuomari)
+
+    
+    def pelikierros(self):
+        self._tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
+        print(self._tuomari)
+
+        ekan_siirto, tokan_siirto = self.tee_siirrot()
+
+        self.siirron_asettaminen(tokan_siirto, ekan_siirto)
+
+
+    def tee_siirrot(self):
+        ekan_siirto = self.ekan_siirto()
+        tokan_siirto = self.tokan_siirto()
+
+        return ekan_siirto, tokan_siirto
 
 
     def ekan_siirto(self):
