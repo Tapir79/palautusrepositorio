@@ -1,22 +1,17 @@
-from tuomari import Tuomari
+from kivi_paperi_sakset import KiviPaperiSakset
 
+class KPSPelaajaVsPelaaja(KiviPaperiSakset):
 
-class KPSPelaajaVsPelaaja:
-    def pelaa(self):
-        tuomari = Tuomari()
+    def __init__(self):
+        super().__init__()
 
-        ekan_siirto = input("Ensimmäisen pelaajan siirto: ")
-        tokan_siirto = input("Toisen pelaajan siirto: ")
+    def tokan_siirto(self):
+        return input("Toisen pelaajan siirto: ")
+    
+    def toisen_pelaajan_eka_valinta(self, _tokan_siirto):
+        pass
+    
+    def siirron_asettaminen(self, _tokan_siirto, _ekan_siirto):
+        pass
 
-        while self._onko_ok_siirto(ekan_siirto) and self._onko_ok_siirto(tokan_siirto):
-            tuomari.kirjaa_siirto(ekan_siirto, tokan_siirto)
-            print(tuomari)
-
-            ekan_siirto = input("Ensimmäisen pelaajan siirto: ")
-            tokan_siirto = input("Toisen pelaajan siirto: ")
-
-        print("Kiitos!")
-        print(tuomari)
-
-    def _onko_ok_siirto(self, siirto):
-        return siirto == "k" or siirto == "p" or siirto == "s"
+    
