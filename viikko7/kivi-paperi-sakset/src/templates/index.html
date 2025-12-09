@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kivi-Paperi-Sakset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🪨 📄 ✂️ Kivi-Paperi-Sakset</h1>
+        
+        <!-- Game Mode Selection -->
+        <div id="mode-selection" class="section">
+            <h2>Valitse pelimuoto</h2>
+            <div class="button-group">
+                <button class="mode-button" data-mode="a">
+                    👥 Pelaaja vs Pelaaja
+                </button>
+                <button class="mode-button" data-mode="b">
+                    🤖 Pelaaja vs Tekoäly
+                </button>
+                <button class="mode-button" data-mode="c">
+                    🧠 Pelaaja vs Parannettu Tekoäly
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div id="game-area" class="section hidden">
+            <div id="game-info">
+                <h2 id="game-mode-title"></h2>
+                <p class="info-text">Valitse siirtosi: Kivi (k), Paperi (p) tai Sakset (s)</p>
+                <p class="win-condition">🏆 Ensimmäinen 5 kierrokseen voittanut voittaa pelin!</p>
+            </div>
+
+            <!-- Player 1 Move Buttons -->
+            <div id="player1-moves">
+                <h3 class="player-label">Pelaaja 1 - Valitse siirtosi:</h3>
+                <div class="move-buttons">
+                    <button class="move-button player1-button" data-move="k">
+                        <span class="move-icon">🪨</span>
+                        <span class="move-text">Kivi</span>
+                    </button>
+                    <button class="move-button player1-button" data-move="p">
+                        <span class="move-icon">📄</span>
+                        <span class="move-text">Paperi</span>
+                    </button>
+                    <button class="move-button player1-button" data-move="s">
+                        <span class="move-icon">✂️</span>
+                        <span class="move-text">Sakset</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Player 2 Move Buttons (only for PvP) -->
+            <div id="player2-moves" class="hidden">
+                <h3 class="player-label">Pelaaja 2 - Valitse siirtosi:</h3>
+                <div class="move-buttons">
+                    <button class="move-button player2-button" data-move="k">
+                        <span class="move-icon">🪨</span>
+                        <span class="move-text">Kivi</span>
+                    </button>
+                    <button class="move-button player2-button" data-move="p">
+                        <span class="move-icon">📄</span>
+                        <span class="move-text">Paperi</span>
+                    </button>
+                    <button class="move-button player2-button" data-move="s">
+                        <span class="move-icon">✂️</span>
+                        <span class="move-text">Sakset</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Last Move Display -->
+            <div id="last-move" class="hidden">
+                <div class="move-display">
+                    <div class="player-move">
+                        <h3>Sinä</h3>
+                        <div id="player-move-icon" class="big-icon"></div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="opponent-move">
+                        <h3 id="opponent-name">Vastustaja</h3>
+                        <div id="opponent-move-icon" class="big-icon"></div>
+                    </div>
+                </div>
+                <div id="round-result" class="round-result"></div>
+            </div>
+
+            <!-- Scoreboard -->
+            <div id="scoreboard" class="scoreboard">
+                <div class="score-item">
+                    <div class="score-label">Pelaaja 1</div>
+                    <div id="score-player1" class="score-value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Tasapelit</div>
+                    <div id="score-ties" class="score-value">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label" id="player2-label">Pelaaja 2</div>
+                    <div id="score-player2" class="score-value">0</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button id="end-game" class="button secondary">Lopeta peli</button>
+                <button id="new-game" class="button primary hidden">Uusi peli</button>
+            </div>
+        </div>
+
+        <!-- Game Over Message -->
+        <div id="game-over" class="section hidden">
+            <h2>Peli päättyi!</h2>
+            <div id="final-scores"></div>
+            <button id="restart-button" class="button primary">Aloita uusi peli</button>
+        </div>
+    </div>
+
+    <script>
+        let currentGameId = null;
+        let currentGameType = null;
+        let player1Move = null;
+        let player2Move = null;
+        const moveIcons = {
+            'k': '🪨',
+            'p': '📄',
+            's': '✂️'
+        };
+
+        const moveNames = {
+            'k': 'Kivi',
+            'p': 'Paperi',
+            's': 'Sakset'
+        };
+
+        // Mode selection
+        document.querySelectorAll('.mode-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const mode = button.dataset.mode;
+                await startNewGame(mode);
+            });
+        });
+
+        // Player 1 Move buttons
+        document.querySelectorAll('.player1-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const move = button.dataset.move;
+                if (currentGameType === 'a') {
+                    // PvP mode - store move and wait for player 2
+                    player1Move = move;
+                    highlightSelectedMove(button, 'player1');
+                    showPlayer2Buttons();
+                } else {
+                    // AI mode - make move immediately
+                    await makeMove(move);
+                }
+            });
+        });
+
+        // Player 2 Move buttons
+        document.querySelectorAll('.player2-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const move = button.dataset.move;
+                player2Move = move;
+                highlightSelectedMove(button, 'player2');
+                // Both players have selected, make the move
+                await makePvPMove();
+            });
+        });
+
+        // End game button
+        document.getElementById('end-game').addEventListener('click', async () => {
+            await endGame();
+        });
+
+        // Restart buttons
+        document.getElementById('restart-button').addEventListener('click', () => {
+            location.reload();
+        });
+
+        document.getElementById('new-game').addEventListener('click', () => {
+            location.reload();
+        });
+
+        async function startNewGame(gameType) {
+            try {
+                const response = await fetch('/api/new_game', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ game_type: gameType })
+                });
+
+                const data = await response.json();
+                currentGameId = data.game_id;
+                currentGameType = data.game_type;
+
+                // Update UI
+                document.getElementById('mode-selection').classList.add('hidden');
+                document.getElementById('game-area').classList.remove('hidden');
+
+                const modeNames = {
+                    'a': 'Pelaaja vs Pelaaja',
+                    'b': 'Pelaaja vs Tekoäly',
+                    'c': 'Pelaaja vs Parannettu Tekoäly'
+                };
+                document.getElementById('game-mode-title').textContent = modeNames[gameType];
+
+                // Setup for PvP mode or AI mode
+                if (gameType === 'a') {
+                    document.getElementById('player2-label').textContent = 'Pelaaja 2';
+                    document.getElementById('opponent-name').textContent = 'Pelaaja 2';
+                } else {
+                    document.getElementById('player2-label').textContent = 'Tietokone';
+                    document.getElementById('opponent-name').textContent = 'Tietokone';
+                }
+            } catch (error) {
+                console.error('Error starting game:', error);
+                alert('Virhe pelin aloituksessa!');
+            }
+        }
+
+        function highlightSelectedMove(button, player) {
+            // Remove previous highlights
+            document.querySelectorAll(`.${player}-button`).forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            // Add highlight to selected button
+            button.classList.add('selected');
+        }
+
+        function showPlayer2Buttons() {
+            document.getElementById('player2-moves').classList.remove('hidden');
+        }
+
+        function hidePlayer2Buttons() {
+            document.getElementById('player2-moves').classList.add('hidden');
+        }
+
+        function resetMoveSelection() {
+            document.querySelectorAll('.move-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            player1Move = null;
+            player2Move = null;
+            hidePlayer2Buttons();
+        }
+
+        async function makePvPMove() {
+            if (!currentGameId || !player1Move || !player2Move) return;
+
+            try {
+                const response = await fetch('/api/make_move', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        game_id: currentGameId, 
+                        move: player1Move,
+                        move2: player2Move
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.game_over) {
+                    showGameOver(data.final_scores);
+                    return;
+                }
+
+                // Update UI with move results
+                displayMoveResults(data);
+                
+                // Reset for next round
+                resetMoveSelection();
+            } catch (error) {
+                console.error('Error making move:', error);
+                alert('Virhe siirron tekemisessä!');
+            }
+        }
+
+        async function makeMove(move) {
+            if (!currentGameId) return;
+
+            try {
+                const response = await fetch('/api/make_move', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        game_id: currentGameId, 
+                        move: move
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.game_over) {
+                    showGameOver(data.final_scores);
+                    return;
+                }
+
+                // Update UI with move results
+                displayMoveResults(data);
+            } catch (error) {
+                console.error('Error making move:', error);
+                alert('Virhe siirron tekemisessä!');
+            }
+        }
+
+        function displayMoveResults(data) {
+            // Update UI with move results
+            document.getElementById('player-move-icon').textContent = moveIcons[data.player_move];
+            document.getElementById('opponent-move-icon').textContent = moveIcons[data.computer_move];
+            document.getElementById('last-move').classList.remove('hidden');
+
+            // Determine round result
+            const result = determineWinner(data.player_move, data.computer_move);
+            const roundResult = document.getElementById('round-result');
+            roundResult.textContent = result.message;
+            roundResult.className = 'round-result ' + result.class;
+
+            // Update scores
+            updateScores(data.scores);
+        }
+
+        function determineWinner(move1, move2) {
+            if (move1 === move2) {
+                return { message: 'Tasapeli!', class: 'tie' };
+            }
+            
+            const wins = {
+                'k': 's',
+                's': 'p',
+                'p': 'k'
+            };
+
+            if (wins[move1] === move2) {
+                return { message: '🎉 Voitit kierroksen!', class: 'win' };
+            } else {
+                return { message: '😞 Hävisit kierroksen', class: 'lose' };
+            }
+        }
+
+        function updateScores(scores) {
+            document.getElementById('score-player1').textContent = scores.player1;
+            document.getElementById('score-player2').textContent = scores.player2;
+            document.getElementById('score-ties').textContent = scores.ties;
+        }
+
+        async function endGame() {
+            if (!currentGameId) return;
+
+            try {
+                const response = await fetch('/api/end_game', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ game_id: currentGameId })
+                });
+
+                const data = await response.json();
+                showGameOver(data.final_scores);
+            } catch (error) {
+                console.error('Error ending game:', error);
+            }
+        }
+
+        function showGameOver(scores) {
+            document.getElementById('game-area').classList.add('hidden');
+            document.getElementById('game-over').classList.remove('hidden');
+
+            const finalScoresDiv = document.getElementById('final-scores');
+            finalScoresDiv.innerHTML = `
+                <div class="final-score-box">
+                    <h3>Lopputulokset</h3>
+                    <p>Pelaaja 1: <strong>${scores.player1}</strong></p>
+                    <p>Pelaaja 2: <strong>${scores.player2}</strong></p>
+                    <p>Tasapelit: <strong>${scores.ties}</strong></p>
+                    ${scores.player1 > scores.player2 ? '<p class="winner">🏆 Pelaaja 1 voitti!</p>' : 
+                      scores.player2 > scores.player1 ? '<p class="winner">🏆 Pelaaja 2 voitti!</p>' : 
+                      '<p class="winner">🤝 Tasapeli!</p>'}
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
