@@ -14,3 +14,6 @@
 - [X] Pyydä agenttia muuttamaan sovellusta (ja testejä) siten, että jokaista peliä pelataan niin kauan kunnes toinen osapuoli on saavuttanut viisi voittoa    
 - [X] Tee peliin vielä agentin avulla jokin haluamasi muutos: lisää dokumentaatio, muuta UI:ta siten, että player vs player-pelissä molemmat pelaajat klikkailevat kuvia, eikä kummankaan tarvitse syöttää tekstiä käsin omasta valinnasta.     
 - [X] Muuta vielä koodia ilman agentin apua siten, että pelit päättyvät kun toinen pelaajista saavuttaa kolme voittoa      
+- [X] Varmista, että testit menevät vielä läpi     
+- [X] Käy läpi agentin tekemä koodi ja pyydä sitä selittämään jos jokin osa on vieras. 
+- [X] Kirjoita kokemuksista raportti

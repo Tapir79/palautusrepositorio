@@ -270,22 +270,22 @@ class TestWebApp:
         game_id = response.get_json()['game_id']
 
         # Player 1 wins 5 rounds
-        for i in range(5):
+        for i in range(3):
             response = client.post('/api/make_move',
                                    json={'game_id': game_id, 
                                          'move': 'k',  # rock
                                          'move2': 's'})  # scissors - player 1 wins
             data = response.get_json()
             
-            if i < 4:
-                # First 4 wins, game continues
+            if i < 2:
+                # First 2 wins, game continues
                 assert data['game_over'] is False, f"Game ended too early at round {i}: {data}"
                 assert data['scores']['player1'] == i + 1
             else:
-                # 5th win, game ends
+                # 3rd win, game ends
                 assert data['game_over'] is True
                 assert 'final_scores' in data
-                assert data['final_scores']['player1'] == 5
+                assert data['final_scores']['player1'] == 3
                 assert 'message' in data
 
     def test_game_ends_when_player2_wins_five(self, client):
@@ -294,23 +294,23 @@ class TestWebApp:
                                json={'game_type': 'a'})
         game_id = response.get_json()['game_id']
 
-        # Player 2 wins 5 rounds
-        for i in range(5):
+        # Player 2 wins 3 rounds
+        for i in range(3):
             response = client.post('/api/make_move',
                                    json={'game_id': game_id, 
                                          'move': 's',  # scissors
                                          'move2': 'k'})  # rock - player 2 wins
             data = response.get_json()
             
-            if i < 4:
-                # First 4 wins, game continues
+            if i < 2:
+                # First 2 wins, game continues
                 assert data['game_over'] is False, f"Game ended too early at round {i}: {data}"
                 assert data['scores']['player2'] == i + 1
             else:
-                # 5th win, game ends
+                # 3rd win, game ends
                 assert data['game_over'] is True
                 assert 'final_scores' in data
-                assert data['final_scores']['player2'] == 5
+                assert data['final_scores']['player2'] == 3
 
     def test_game_continues_with_ties(self, client):
         """Test that ties don't count toward the 5-win requirement."""
@@ -328,8 +328,8 @@ class TestWebApp:
             assert data['game_over'] is False
             assert data['scores']['ties'] > 0
 
-        # Player 1 wins 4 rounds (not enough to win)
-        for _ in range(4):
+        # Player 1 wins 3 rounds (not enough to win)
+        for _ in range(3):
             response = client.post('/api/make_move',
                                    json={'game_id': game_id, 
                                          'move': 'k',

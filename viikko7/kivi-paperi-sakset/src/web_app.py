@@ -108,13 +108,14 @@ def make_move():
     player1_score = game_state['tuomari'].ekan_pisteet
     player2_score = game_state['tuomari'].tokan_pisteet
     
-    if player1_score >= 5 or player2_score >= 5:
+    #if player1_score >= 5 or player2_score >= 5:
+    if player1_score >= 3 or player2_score >= 3:
         game_state['game_over'] = True
         return jsonify({
             'player_move': player_move,
             'computer_move': computer_move,
             'game_over': True,
-            'message': 'Game over! A player won 5 rounds!',
+            'message': 'Game over! A player won 3 rounds!',
             'final_scores': {
                 'player1': player1_score,
                 'player2': player2_score,
